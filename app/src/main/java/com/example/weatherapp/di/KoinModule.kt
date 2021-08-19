@@ -1,8 +1,8 @@
 package com.example.weatherapp.di
 
-import com.example.weatherapp.model.repository.Repository
 import com.example.weatherapp.model.repository.RepositoryImpl
-import com.example.weatherapp.ui.MainViewModel
+import com.example.weatherapp.ui.viewModels.MainViewModel
+import com.geekbrains.kotlinmvvm.model.repository.Repository
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
