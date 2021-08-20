@@ -21,20 +21,24 @@ class DetailsFragment : Fragment() {
         return binding.root
     }
 
+    private fun setViews(weather: Weather){
+        with(binding) {
+            val city = weather.city
+            cityName.text = city.city
+            cityCoordinates.text = String.format(
+                getString(R.string.city_coordinates),
+                city.lat.toString(),
+                city.lon.toString()
+            )
+            temperatureValue.text = weather.temperature.toString()
+            feelsLikeValue.text = weather.feelsLike.toString()
+        }
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         arguments?.getParcelable<Weather>(BUNDLE_EXTRA)?.let {
-            with(binding) {
-                val city = it.city
-                cityName.text = city.city
-                cityCoordinates.text = String.format(
-                    getString(R.string.city_coordinates),
-                    city.lat.toString(),
-                    city.lon.toString()
-                )
-                temperatureValue.text = it.temperature.toString()
-                feelsLikeValue.text = it.feelsLike.toString()
-            }
+            setViews(it)
         }
     }
 
