@@ -8,10 +8,12 @@ import com.geekbrains.kotlinmvvm.model.repository.Repository
 class RepositoryImpl : Repository {
     override fun getWeatherFromServer(lat: Double, lng: Double): Weather {
         val dto = WeatherLoader.loadWeather(lat, lng)
+
         return Weather(
             temperature = dto?.fact?.temp ?: 0,
             feelsLike = dto?.fact?.feels_like ?: 0,
-            condition = dto?.fact?.condition
+            condition = dto?.fact?.condition,
+            loaded_success = dto != null
         )
     }
     override fun getWeatherFromLocalStorageRus() = City.getRussianCities()

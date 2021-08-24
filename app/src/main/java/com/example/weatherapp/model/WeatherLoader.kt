@@ -21,7 +21,7 @@ object WeatherLoader {
                 urlConnection = uri.openConnection() as HttpsURLConnection
                 urlConnection.requestMethod = "GET"
                 urlConnection.addRequestProperty(
-                    "X-Yandex-API-Key", "6f9ab296-8e55-4857-8ad1-2e629e6c816c"
+                    "X-Yandex-API-Key", "c7c58d5d-db4c-42c7-be3f-44c171c36c76"
                 )
                 urlConnection.readTimeout = 10000
                 val bufferedReader = BufferedReader(InputStreamReader(urlConnection.inputStream))

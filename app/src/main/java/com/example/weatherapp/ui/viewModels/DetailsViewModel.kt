@@ -13,7 +13,12 @@ class DetailsViewModel(private val repository: Repository) : ViewModel(), Lifecy
         liveDataToObserve.value = AppState.Loading
         Thread {
             val data = repository.getWeatherFromServer(lat, lng)
-            liveDataToObserve.postValue(AppState.Success(listOf(data)))
+            if (data.loaded_success) {
+                liveDataToObserve.postValue(AppState.Success(listOf(data)))
+            } else {
+                liveDataToObserve.postValue(AppState.NotLoaded)
+            }
+
         }.start()
     }
 }

@@ -8,6 +8,7 @@ data class Weather(
     val city: City = City.getDefaultCity(),
     val temperature: Int = 0,
     val feelsLike: Int = 0,
-    val condition: String? = "Неизвестно"
+    val condition: String? = "Неизвестно",
+    val loaded_success: Boolean = false
 ) :Parcelable
 

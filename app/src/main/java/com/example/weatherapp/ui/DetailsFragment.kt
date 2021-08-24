@@ -50,6 +50,12 @@ class DetailsFragment : Fragment() {
                     loadingLayout.visibility = View.GONE
                     errorTV.visibility = View.VISIBLE
                 }
+                is AppState.NotLoaded -> {
+                    mainView.visibility = View.INVISIBLE
+                    loadingLayout.visibility = View.GONE
+                    errorTV.visibility = View.VISIBLE
+                    errorTV.text = getString(R.string.error_not_loaded)
+                }
                 AppState.Loading -> {
                     mainView.visibility = View.INVISIBLE
                     binding.loadingLayout.visibility = View.VISIBLE
@@ -61,6 +67,8 @@ class DetailsFragment : Fragment() {
                     feelsLikeValue.text = appState.weatherData[0].feelsLike.toString()
                     weatherCondition.text = getWeatherCondition(appState.weatherData[0].condition.toString())
                 }
+
+
             }
         }
     }
