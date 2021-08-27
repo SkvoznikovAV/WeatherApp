@@ -6,4 +6,27 @@
     <string name="change_cities_list">Поменять список</string>
     <string name="error">Ошибка!</string>
     <string name="reload">Обновить</string>
+    <string name="error_happened">Произошла ошибка</string>
+
+    <string name="condition.clear">ясно</string>
+    <string name="condition.partly_cloudy">малооблачно</string>
+    <string name="condition.cloudy">облачно с прояснениями</string>
+    <string name="condition.overcast">пасмурно</string>
+    <string name="condition.drizzle">морось</string>
+    <string name="condition.light_rain">небольшой дождь</string>
+    <string name="condition.rain">дождь</string>
+    <string name="condition.moderate_rain">умеренно сильный дождь</string>
+    <string name="condition.heavy_rain">сильный дождь</string>
+    <string name="condition.continuous_heavy_rain">длительный сильный дождь</string>
+    <string name="condition.showers">ливень</string>
+    <string name="condition.wet_snow">дождь со снегом</string>
+    <string name="condition.light_snow">небольшой снег</string>
+    <string name="condition.snow">снег</string>
+    <string name="condition.snow_showers">снегопад</string>
+    <string name="condition.hail">град</string>
+    <string name="condition.thunderstorm">гроза</string>
+    <string name="condition.thunderstorm_with_rain">дождь с грозой</string>
+    <string name="condition.thunderstorm_with_hail">гроза с градом</string>
+    <string name="condition.unknown">не определено</string>
+    <string name="error_not_loaded">Не удалось загрузить данные из интернета. Возможно закончился лимит на кол-во запросов</string>
 </resources>
