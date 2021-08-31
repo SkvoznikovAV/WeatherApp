@@ -10,6 +10,7 @@ import com.example.weatherapp.R
 import com.example.weatherapp.databinding.DetailsFragmentBinding
 import com.example.weatherapp.model.entities.Weather
 import com.example.weatherapp.ui.viewModels.DetailsViewModel
+import com.squareup.picasso.Picasso
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class DetailsFragment : Fragment() {
@@ -66,6 +67,11 @@ class DetailsFragment : Fragment() {
                     temperatureValue.text = appState.weatherData[0].temperature.toString()
                     feelsLikeValue.text = appState.weatherData[0].feelsLike.toString()
                     weatherCondition.text = getWeatherCondition(appState.weatherData[0].condition.toString())
+
+                    Picasso
+                        .get()
+                        .load("https://cdn-icons-png.flaticon.com/512/1163/1163661.png")
+                        .into(binding.imageWeather)
                 }
 
 
