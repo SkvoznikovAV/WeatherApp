@@ -1,5 +1,6 @@
 package com.geekbrains.kotlinmvvm.framework.ui.main
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -24,6 +25,8 @@ class MainFragment : Fragment() {
     private var adapter: MainFragmentAdapter? = null
     private var isDataSetRus: Boolean = true
 
+    private val IS_WORLD_KEY = "LIST_OF_TOWNS_KEY"
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -32,13 +35,30 @@ class MainFragment : Fragment() {
         return binding.root
     }
 
+    private fun initDataSet() {
+        activity?.let {
+            isDataSetRus = it.getPreferences(Context.MODE_PRIVATE)
+                .getBoolean(IS_WORLD_KEY, true)
+        }
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         with(binding) {
             mainFragmentRecyclerView.adapter = adapter
             mainFragmentFAB.setOnClickListener { changeWeatherDataSet() }
             viewModel.getLiveData().observe(viewLifecycleOwner, { renderData(it) })
+
+            initDataSet()
+            loadDataSet()
+        }
+    }
+
+    private fun loadDataSet(){
+        if (isDataSetRus) {
             viewModel.getWeatherFromLocalSourceRus()
+        } else {
+            viewModel.getWeatherFromLocalSourceWorld()
         }
     }
 
@@ -48,12 +68,18 @@ class MainFragment : Fragment() {
     }
 
     private fun changeWeatherDataSet() = with(binding) {
-        if (isDataSetRus) {
-            viewModel.getWeatherFromLocalSourceWorld()
-        } else {
-            viewModel.getWeatherFromLocalSourceRus()
-        }
         isDataSetRus = !isDataSetRus
+        loadDataSet()
+        saveDataSetToDisk()
+    }
+
+    private fun saveDataSetToDisk() {
+        activity?.let {
+            val preferences = it.getPreferences(Context.MODE_PRIVATE)
+            val editor = preferences.edit()
+            editor.putBoolean(IS_WORLD_KEY, isDataSetRus)
+            editor.apply()
+        }
     }
 
     private fun renderData(appState: AppState) = with(binding) {

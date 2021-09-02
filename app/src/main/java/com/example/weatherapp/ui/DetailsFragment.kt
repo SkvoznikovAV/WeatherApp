@@ -38,7 +38,7 @@ class DetailsFragment : Fragment() {
                     it.city.lon.toString()
                 )
                 viewModel.liveDataToObserve.observe(viewLifecycleOwner, { renderData(it) })
-                viewModel.loadData(it.city.lat, it.city.lon)
+                viewModel.loadData(it.city.lat, it.city.lon, it.city)
             }
         }
     }
@@ -66,7 +66,7 @@ class DetailsFragment : Fragment() {
                     mainView.visibility = View.VISIBLE
                     temperatureValue.text = appState.weatherData[0].temperature.toString()
                     feelsLikeValue.text = appState.weatherData[0].feelsLike.toString()
-                    weatherCondition.text = getWeatherCondition(appState.weatherData[0].condition.toString())
+                    weatherCondition.text = resources.getString(Weather.getWeatherCondition(appState.weatherData[0].condition.toString()))
 
                     Picasso
                         .get()
@@ -79,32 +79,7 @@ class DetailsFragment : Fragment() {
         }
     }
 
-    private fun getWeatherCondition(condition:String) : String {
-        var res = when (condition){
-            "clear" -> R.string.condition_clear
-            "partly-cloudy" -> R.string.condition_partly_cloudy
-            "cloudy" -> R.string.condition_cloudy
-            "overcast" -> R.string.condition_overcast
-            "drizzle" -> R.string.condition_drizzle
-            "light-rain" -> R.string.condition_light_rain
-            "rain" -> R.string.condition_rain
-            "moderate-rain" -> R.string.condition_moderate_rain
-            "heavy-rain" -> R.string.condition_heavy_rain
-            "continuous-heavy-rain" -> R.string.condition_continuous_heavy_rain
-            "showers" -> R.string.condition_showers
-            "wet-snow" -> R.string.condition_wet_snow
-            "light-snow" -> R.string.condition_light_snow
-            "snow" -> R.string.condition_snow
-            "snow-showers" -> R.string.condition_snow_showers
-            "hail" -> R.string.condition_hail
-            "thunderstorm" -> R.string.condition_thunderstorm
-            "thunderstorm-with-rain" -> R.string.condition_thunderstorm_with_rain
-            "thunderstorm-with-hail" -> R.string.condition_thunderstorm_with_hail
-            else -> R.string.condition_unknown
-        }
 
-        return resources.getString(res)
-    }
 
     override fun onDestroyView() {
         super.onDestroyView()
