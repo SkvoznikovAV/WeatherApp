@@ -29,4 +29,5 @@
     <string name="condition.thunderstorm_with_hail">гроза с градом</string>
     <string name="condition.unknown">не определено</string>
     <string name="error_not_loaded">Не удалось загрузить данные из интернета. Возможно закончился лимит на кол-во запросов</string>
+    <string name="menu_history">История</string>
 </resources>
