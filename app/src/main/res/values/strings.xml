@@ -30,4 +30,6 @@
     <string name="condition.unknown">не определено</string>
     <string name="error_not_loaded">Не удалось загрузить данные из интернета. Возможно закончился лимит на кол-во запросов</string>
     <string name="menu_history">История</string>
+    <string name="contacts">Контакты</string>
+    <string name="need_permissions_to_read_contacts">Необходимо предоставить разрешение для чтения контактов</string>
 </resources>
