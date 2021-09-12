@@ -9,7 +9,14 @@
         app:showAsAction="always"
         />
     <item
+        android:id="@+id/menu_google_maps"
+        android:icon="@android:drawable/ic_dialog_map"
+        android:title="@string/map"
+        app:showAsAction="always" />
+    <item
         android:id="@+id/menu_contacts"
         android:title="@string/contacts"
+        android:icon="@drawable/ic_baseline_contact_phone_24"
         app:showAsAction="ifRoom" />
+
 </menu>
