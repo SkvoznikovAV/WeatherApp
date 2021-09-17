@@ -47,4 +47,7 @@
     <string name="dialog_address_title">Ваш адрес</string>
     <string name="dialog_address_get_weather">Узнать погоду</string>
     <string name="dialog_button_close">Закрыть</string>
+    <string name="info">О приложении</string>
+    <string name="free_version_msg">Бесплатная версия с ограниченным функционалом</string>
+    <string name="paid_version_msg">Платная версия с полным функционалом</string>
 </resources>
