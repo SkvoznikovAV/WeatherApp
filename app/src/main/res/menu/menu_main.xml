@@ -18,5 +18,10 @@
         android:title="@string/contacts"
         android:icon="@drawable/ic_baseline_contact_phone_24"
         app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/menu_info"
+        android:title="@string/info"
+        android:icon="@android:drawable/ic_dialog_info"
+        app:showAsAction="ifRoom" />
 
 </menu>
